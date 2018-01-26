@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Dashboard">
+    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
+
+    <title>Place An Order</title>
+
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
+    <script src="assets/js/chart-master/Chart.js"></script>
+
+  </head>
+
+<?php
+if($_GET['studentIDFail']=="true"){
+echo "The studentID you entered already exists, please try again";
+}
+
+if($_GET['act']=="edit"): ?>
+  <form action="viewOrder.php" method="post">
+    First name:<br>
+    <input type="text" name="f_name" value= "<?php echo $_GET['fname'] ?>" pattern="^[A-Za-z ]{1,20}$" required> <br>
+    Middle name:<br>
+    <input type="text" name="m_name" value="<?php echo $_GET['mname']?>" pattern="^[A-Za-z ]{1,20}$" ><br>
+    Last name:<br>
+    <input type="text" name="l_name" value="<?php echo $_GET['lname']?>" pattern="^[A-Za-z ]{1,20}$" required><br>
+    StudentID:<br>
+    <input type="text" name="studentID" value="<?php echo $_GET['studentID']?>" pattern="^[0-9 ]{10}$" required><br>
+    Ordered by:<br>
+    <input type="text" name="orderName" value="<?php echo $_GET['orderName']?>" pattern="^[A-Za-z ]{1,20}$" required><br>
+    Date of the order:<br>
+    <input type="text" name="orderDate" value="<?php echo $_GET['orderDate']?>" pattern="^\d{2}/\d{2}/\d{4}$" required><br>
+    Time of the order:<br>
+    <input type="text" name="orderTime" value="<?php echo $_GET['orderTime']?>" pattern="^\d{2}:\d{2}$" required><br>
+    <br>
+    <input type="hidden" name="oldStudentID" value="<?php echo $_GET['studentID']?>"<br>
+    <input type="submit" value="Update">
+  </form>
+
+</html>

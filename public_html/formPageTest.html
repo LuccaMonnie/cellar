@@ -1,0 +1,24 @@
+<html>
+
+
+<?php $name = $_GET["fname"];
+ ?>
+
+Hi <?php echo htmlspecialchars($_POST['fname']); ?>.
+You are <?php echo (int)$_GET['age']; ?> years old.
+
+
+<form action="createPassenger.php" method="post">
+  First name:<br>
+  <input type="text" name="f_name" value=<?php echo $name; ?>/> <br>
+  Middle name:<br>
+  <input type="text" name="m_name" ><br>
+  Last name:<br>
+  <input type="text" name="l_name" required><br>
+  SSN:<br>
+  <input type="text" name="ssn" minLength = "11" required><br>
+  <br>
+  <input type="submit" value="Submit">
+</form>
+
+</html>
